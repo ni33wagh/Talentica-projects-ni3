@@ -1,0 +1,39 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>pipeline {
+    agent any
+    stages {
+        stage(&apos;Trigger Jobs&apos;) {
+            steps {
+                sh &apos;&apos;&apos;
+                  JENKINS_URL=&quot;http://localhost:8080&quot;
+                  USER=&quot;admin&quot;
+                  API_TOKEN=&quot;119945a0409c8335bfdb889b602739a995&quot;
+
+                  curl -s -X POST &quot;$JENKINS_URL/job/job1/build&quot; --user &quot;$USER:$API_TOKEN&quot;
+                  curl -s -X POST &quot;$JENKINS_URL/job/job2/buildWithParameters?BRANCH=main&quot; --user &quot;$USER:$API_TOKEN&quot;
+                &apos;&apos;&apos;
+            }
+        }
+    }
+}
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

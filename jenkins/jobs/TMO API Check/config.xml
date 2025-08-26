@@ -1,0 +1,47 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>IMEI</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>pipeline {
+    agent any
+    stages {
+        stage(&apos;Print Info&apos;) {
+            steps {
+                sh &apos;&apos;&apos;
+                  echo &quot;=======================================&quot;
+                  echo &quot; Jenkins Test Job - Shell Script Sample&quot;
+                  echo &quot;=======================================&quot;
+
+                  echo &quot;Current Date &amp; Time: $(date)&quot;
+                  echo &quot;Running on Host: $(hostname)&quot;
+                  echo &quot;Current User: $(whoami)&quot;
+
+                  echo &quot;Listing Workspace Files:&quot;
+                  ls -l
+
+                  echo &quot;=======================================&quot;
+                  echo &quot; Script Completed Successfully ✅&quot;
+                  echo &quot;=======================================&quot;
+                &apos;&apos;&apos;
+            }
+        }
+    }
+}
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
