@@ -1,0 +1,9 @@
+Started by user [8mha:////4NKWM4XIVGqTZn1O7vOClHAI7joUPcrQPmDZfLS8iljGAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/success-freestyle-4
+[success-freestyle-4] $ /bin/sh -xe /tmp/jenkins9942199146374107125.sh
++ echo Build OK
+Build OK
++ sleep 1
++ exit 0
+Finished: SUCCESS

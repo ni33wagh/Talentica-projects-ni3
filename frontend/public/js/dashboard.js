@@ -858,14 +858,31 @@ class DashboardManager {
     
     showLoading(show) {
         const modal = document.getElementById('loadingModal');
+        const topBar = document.getElementById('top-progress');
         if (modal) {
             if (show) {
                 new bootstrap.Modal(modal).show();
+                if (topBar) {
+                    topBar.style.width = '10%';
+                    this._progressTimer && clearInterval(this._progressTimer);
+                    this._progressTimer = setInterval(() => {
+                        const cur = parseFloat(topBar.style.width) || 0;
+                        const next = cur + Math.max(1, (100 - cur) * 0.05);
+                        topBar.style.width = Math.min(95, next) + '%';
+                    }, 200);
+                }
             } else {
                 const modalInstance = bootstrap.Modal.getInstance(modal);
                 if (modalInstance) {
                     modalInstance.hide();
                 }
+                if (topBar) {
+                    topBar.style.width = '100%';
+                    setTimeout(() => {
+                        topBar.style.width = '0%';
+                    }, 300);
+                }
+                this._progressTimer && clearInterval(this._progressTimer);
             }
         }
     }

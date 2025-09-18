@@ -1,0 +1,23 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition>
+  <actions/>
+  <description>Pipeline success job</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers/>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps">
+    <script>pipeline {
+  agent any
+  stages {
+    stage('Build') { steps { sh 'echo build ok' } }
+    stage('Test') { steps { sh 'echo test ok' } }
+  }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
