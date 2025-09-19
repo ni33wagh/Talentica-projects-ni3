@@ -157,6 +157,15 @@ resource "aws_security_group" "ec2" {
     description = "Jenkins"
   }
 
+  # Status page access
+  ingress {
+    from_port   = 8081
+    to_port     = 8081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Status page"
+  }
+
   # All outbound traffic
   egress {
     from_port   = 0
@@ -201,10 +210,7 @@ resource "aws_instance" "main" {
   }
 
   # User data script for Docker installation and app deployment
-  user_data = base64encode(templatefile("${path.module}/user_data_amazon_linux.sh", {
-    project_name = var.project_name
-    environment  = var.environment
-  }))
+  user_data = base64encode(file("${path.module}/user_data_amazon_linux_fixed.sh"))
 
   tags = {
     Name = "${var.project_name}-instance"
