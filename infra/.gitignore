@@ -1,13 +1,24 @@
-# Terraform state files
-*.tfstate
-*.tfstate.*
-
-# Terraform plan files
-*.tfplan
-
-# Local Terraform data
+# Terraform
 .terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
+terraform
 
-# Backup files
-*.backup
+# OS
+.DS_Store
+Thumbs.db
 
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
