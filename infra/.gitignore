@@ -1,0 +1,13 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform plan files
+*.tfplan
+
+# Local Terraform data
+.terraform/
+
+# Backup files
+*.backup
+
